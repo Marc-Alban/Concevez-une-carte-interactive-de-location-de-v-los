@@ -27,7 +27,6 @@ function Get(yourUrl){
 
  //Génération d'un objet JSON
 var json_obj = JSON.parse(Get(lien));
-console.log(json_obj)
 //Boucle pour afficher les markers sur la map 
 json_obj.forEach(station => {
 
