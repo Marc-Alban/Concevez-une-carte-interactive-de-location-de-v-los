@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Projet3</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+    integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+    crossorigin=""/>
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+<div id="block_pages">
+    <div id="block_pages2">
+    <!-- header -->
+    <header>
+        <div id="en-tete">
+            <img src="img/cyclic.jpg" alt="Cy’clic" class="Cy’clic" />
+            <h1>Location de 'Cy’clic ' à Rouen</h1>
+        </div>
+    </header>
+    <!-- slider -->
+    <div id="introduction">
+        <h2>Bienvenue sur Cy’clic</h2>
+        <p>Vous pouvez louer votre vélo à Rouen partout facilement où que vous soyer et a n'importe qu'elle moment en suivant les instructions ci dessous. N'hésitez plus et louer en un maintenant.</p>
+    </div>
+        
+    <hr/>
+        
+    <section id="container">
+            <div class="sliderConteneur showing">
+                <img src="img/Zone.png" alt="infos indication marker" class="infos"/> 
+                <div class="texts"> 
+                    <h3>Etape 1</h3> 
+                    <p>Sélectioner une station, pour se faire cliquer sur le marqueur indiquant l'emplacement de votre choix. </p>
+                </div>   
+            </div>
+            <div class="sliderConteneur">
+                <img src="img/Reservation.png" alt="infos_station" class="infos"/> 
+                <div class="texts"> 
+                    <h3>Etape 2</h3> 
+                    <p>Des informations apparaissent, si cela vous convient cliquez sur "réserver"</p>
+                </div>
+            </div>
+            <div class="sliderConteneur">
+                <img src="img/Signature.PNG" alt="signature" class="infos"/>
+                 <div class="texts"> 
+                    <h3>Etape 3</h3> 
+                    <p>Signez et valider</p>
+                </div>
+            </div>
+            <div class="sliderConteneur">
+                <img src="img/Temps.PNG" alt="temps" class="infos"/> 
+                <div class="texts"> 
+                    <h3>Etape 4</h3>   
+                    <p>Un ecart vous indique le temps restant avant validation si vous voulez vous désister pour choissir une autre station, cliquer sur annuler.</p>
+                </div>
+            </div>
+            <div class="sliderConteneur">
+                <img src="img/Profiter.jpg" alt="infos3" class="infos"/>
+                <div class="texts"> 
+                    <h3>Etape 5</h3> 
+                    <p>Profiter.</p>
+                </div> 
+            </div>  
+        <button class="controls" id="next"></button>
+        <button class="controls" id="prev"></button>
+        <button class="controls" id="pause">&#10074;&#10074;</button>
+     </section>
+    
+    <!-- Google map/Infos station/ Reservation staion--> 
+
+    <section id="section_map">
+        
+        <!-- Map -->
+            <div id="block_map">
+                <hr/>
+                <div id="map"></div>
+            </div>
+        
+        <!-- Détail de la station -->
+        <hr/>
+        <div id="infos_global">
+            <div id="infos_station">
+                <h3>Détail de la station</h3>
+                <p id="nom_station"></p>
+                <p id="adresse_station"></p>
+                <p id="disponible_velo"></p>
+                <p id="bike_stands"></p>
+                <p id="status"></p>
+                <button id="btnEnvoi">Réserver</button>
+            </div>
+
+            <div id="formulaire">
+                <form action="">
+                    <label for="nom">Nom</label>: <input type="text" id="nom" name="name" placeholder="Millet" required>
+                    <span id="nomManquant"></span>
+                    <br>
+                    <label for="prenom">Prénom</label>: <input type="text" id="prenom" name="last-name" placeholder="Marc-Alban" required>
+                    <span id="prenomManquant"></span>
+                    <br>
+                    <canvas id="canvas" touch-action="none"></canvas> 
+                </form>
+
+            </div>
+  
+            <!-- temps -->
+            <div id="temps">
+                <p> <span id="textTemps"></span> <span id="countdown"></span></p>
+              
+                <div id="Annuler"><button>Annuler</button></div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <p class="Copyright">© 2019 Millet Marc-Alban - Projet3 OpenClassRoom.</p>
+    </footer>
+    
+
+    <!-- JavaScript -->
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+    integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+    crossorigin=""></script>
+    <script src="javascript/diaporama.js"></script>
+    <script src="javascript/temps.js"></script>
+    <script src="javascript/canvas.js"></script>
+    <script src="javascript/map.js"></script>
+    <script src="javascript/station.js"></script>
+    <script>
+        //Appel du canvas
+        var context = new canvasContext;
+    </script>
+    </div>
+</div>
+</body>
+</html>
