@@ -1,4 +1,4 @@
-var temps =  document.getElementById("temps");
+var temps =  document.getElementById("countdown");
 
 //Objet Compteur 
 var Compteur = function() {
@@ -14,7 +14,7 @@ var Compteur = function() {
     this.reservation = function(){
         sessionStorage.setItem("minutes", this.minutes);
         sessionStorage.setItem("secondes", this.secondes);
-        this.compteARebour.setInterval(this.initCompteur(), 1000);
+        this.compteARebour = setInterval(this.initCompteur.bind(this),1000);
     };
 
     //Methode de réinitialisation du compte à rebours
