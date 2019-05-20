@@ -1,4 +1,6 @@
 var temps =  document.getElementById("countdown");
+var envoie = document.getElementById('envoie');
+
 
 //Objet Compteur 
 var Compteur = function() {
@@ -118,7 +120,7 @@ temp.verificationSessionStorage();
 
 
 // Événements lors de la validation du Canvas
-document.getElementById("btnEnvoi").addEventListener("click", function() {
+document.getElementById("envoie").addEventListener("click", function() {
 
     // Aucune réservation n'existe
     // Lance la méthode de lancement de la réservation
@@ -131,4 +133,5 @@ document.getElementById("btnEnvoi").addEventListener("click", function() {
 document.getElementById("Annuler").addEventListener("click", function() {
     // Lance la méthode d'annulation
     temp.annulerReservation();
+    temp.clearTimeout(this.compteARebourTerminer);
 });

@@ -6,17 +6,10 @@ var prenom = document.getElementById("prenom");
 var prenom_m = document.getElementById("prenomManquant");
 var canvas = document.getElementById("canvas");
 var text = document.getElementById("textTemps");
-var conteur = document.getElementById("countdown");
-
 var fermeture = document.getElementById("Annuler");
 fermeture.addEventListener('click', fermer());
-
-var validation = document.getElementById("btnEnvoi");
-validation.addEventListener('click', validationFx)
-
-
-
-
+var envoie = document.getElementById('envoie');
+envoie.addEventListener('click', validationFx)
 
 
 function fermer(){
@@ -27,12 +20,6 @@ function fermer(){
     //Enlever text 
     text.textContent = "";
 
-    //Alert(message)
-    // alert("Vous avez annuler votre réservation")
-
-    //Supression de canvas dans la stroage --> Voir mentor
-
-        
     }
 
 
@@ -79,18 +66,7 @@ function validationFx(e){
             //bouton fermeture
             fermeture.style.display = "block";
 
-            }else if (window.close || conteur <= 0){
-                        function reset(){
-
-                        }
-                }
+            }
     }
 }
 
-//Affichage si page web  ouverte dans le navigateur
-if(window.open){
-    if(nom.validity.valueMissing && prenom.validity.valueMissing){
-        nom.value = localStorage.name;
-        prenom.value = localStorage.last_name;
-    }
-}
