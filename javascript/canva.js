@@ -8,7 +8,7 @@ var trait = false;
 
 
 //Fonction dessin permet de dessiner un trait pa rapport à la position x et y de la sourie
-function dessin(x,y){
+function draw(x,y){
     if(trait){
         ctx.lineTo(x,y);
         ctx.stroke();
@@ -41,5 +41,5 @@ canvas.addEventListener("mousedown", function(){
 //Lorsque la sourie est en mouvement: 
 canvas.addEventListener("mousemove", function(e){
         //décalage sur l'axe Y et X du pointeur de la souris --> provient de l'interface MouseEvent 
-    dessin(e.offsetX, e.offsetY);
+    draw(e.offsetX, e.offsetY);
 })
