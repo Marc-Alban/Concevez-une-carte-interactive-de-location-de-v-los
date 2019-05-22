@@ -2,6 +2,7 @@ var temps =  document.getElementById("countdown");
 var envoie = document.getElementById('envoie');
 
 
+
 //Objet Compteur 
 var Compteur = function() {
     this.minutes = 20;
@@ -70,11 +71,11 @@ var Compteur = function() {
 
 
         // si les minutes et les secondes sont égales à 0 le Compteur est terminer    
-        }else if( this.minutes == 0 && this.secondes ==0){
+        }else if( this.minutes == 0 && this.secondes == 0 || window.close){
             alert("Votre location à pris fin");
 
             //Appel d'une méthode locationTerminer
-            this.compteARebourTerminer = setTimeout(this.locationTerminer(), 1000);
+            this.compteARebourTerminer = setTimeout(() => this.locationTerminer(), 1000);
         }
 
     };
@@ -104,34 +105,9 @@ var Compteur = function() {
     //Vérification du storage
     this.verificationSessionStorage = function() {
         if (sessionStorage.getItem("minutes")) { // Si une réservation est en cours
-            // Récupération et stockage des sessions storage dans les attributs
-            this.minutes = sessionStorage.getItem("minutes"); // Minutes
-            this.secondes = sessionStorage.getItem("secondes"); // Secondes
             // Relance le compte à rebours
-            this.compteARebour = setInterval(this.initCompteur(), 1000);
+            this.compteARebour = setInterval(() => this.initCompteur(), 1000);
         }
     };
 }
 
-var temp = new Compteur();
-
-// Vérification de l'existence d'une réservation
-temp.verificationSessionStorage();
-
-
-// Événements lors de la validation du Canvas
-document.getElementById("envoie").addEventListener("click", function() {
-
-    // Aucune réservation n'existe
-    // Lance la méthode de lancement de la réservation
-    if(!sessionStorage.getItem("minutes")) { 
-        temp.reservation();
-    }
-});
-
-// Evénement lors du clique sur le bouton d'annulation d'une réservation
-document.getElementById("Annuler").addEventListener("click", function() {
-    // Lance la méthode d'annulation
-    temp.annulerReservation();
-    temp.clearTimeout(this.compteARebourTerminer);
-});

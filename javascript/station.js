@@ -1,5 +1,3 @@
-//Vérification du formulaire et incrustation dans la page
-
 var nom = document.getElementById("nom");
 var nom_m = document.getElementById("nomManquant");
 var prenom = document.getElementById("prenom");
@@ -7,7 +5,7 @@ var prenom_m = document.getElementById("prenomManquant");
 var canvas = document.getElementById("canvas");
 var text = document.getElementById("textTemps");
 var fermeture = document.getElementById("Annuler");
-fermeture.addEventListener('click', fermer());
+fermeture.addEventListener('click', fermer);
 var envoie = document.getElementById('envoie');
 envoie.addEventListener('click', validationFx)
 
@@ -56,12 +54,31 @@ function validationFx(e){
     clearCanvas();
 
         if(window.open){
-            //Marque du text
-            text.textContent = "Vélo réservé au nom de: " + localStorage.name + " " + localStorage.last_name;
-            //Enlever velo avec json_obj ->  mentor aide ? 
+            var temp = new Compteur();
+            // Vérification de l'existence d'une réservation
+            temp.verificationSessionStorage();
+            
+            
+            // Événements lors de la validation du Canvas
+            envoie.addEventListener("click", function() {
+                
+                // Aucune réservation n'existe
+                // Lance la méthode de lancement de la réservation
+                if(!sessionStorage.getItem("minutes")) {
+                //Marque du text
+                text.textContent = "Vélo réservé au nom de: " + localStorage.name + " " + localStorage.last_name + temp.reservation();            
+                }
+            });
 
-            //affichage d'un compteur de 20min 
-            temp.reservation();
+            // Evénement lors du clique sur le bouton d'annulation d'une réservation
+            fermeture.addEventListener("click", function() {
+                // Lance la méthode d'annulation
+                temp.annulerReservation();
+                temp.clearTimeout(() => this.compteARebourTerminer);
+            });
+
+
+            //Enlever velo avec json_obj ->  mentor aide ? 
 
             //bouton fermeture
             fermeture.style.display = "block";
