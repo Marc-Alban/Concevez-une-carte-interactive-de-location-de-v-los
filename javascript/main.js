@@ -1,6 +1,6 @@
     var form = document.getElementById('formulaire');
     var envoie = document.getElementById('envoie');
-    var temps = document.getElementById('temps');
+    var textTemps = document.getElementById('temps');
     var btn = document.getElementById('btnEnvoi');
     var validation = btn.addEventListener('click', displayFonction);
 
@@ -9,7 +9,7 @@
         if(form.style.display = "block"){
             envoie.addEventListener('click', function(e){
                 e.preventDefault();
-                temps.style.display = "block";
+                textTemps.style.display = "block";
             })
         }
     }

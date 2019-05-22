@@ -1,9 +1,11 @@
+var CompteurObj = new Compteur();
 var nom = document.getElementById("nom");
 var nom_m = document.getElementById("nomManquant");
 var prenom = document.getElementById("prenom");
 var prenom_m = document.getElementById("prenomManquant");
 var canvas = document.getElementById("canvas");
 var text = document.getElementById("textTemps");
+var compteurId =  document.getElementById("countdown");
 var fermeture = document.getElementById("Annuler");
 fermeture.addEventListener('click', fermer);
 var envoie = document.getElementById('envoie');
@@ -14,11 +16,15 @@ function fermer(){
         
     //bouton fermeture
     fermeture.style.display = "none";
-
     //Enlever text 
     text.textContent = "";
 
-    }
+    compteurId.style.display = "none";
+
+    // Lance la méthode d'annulation
+    CompteurObj.annulerReservation();
+
+   }
 
 
 function validationFx(e){
@@ -54,31 +60,19 @@ function validationFx(e){
     clearCanvas();
 
         if(window.open){
-            var temp = new Compteur();
+               
             // Vérification de l'existence d'une réservation
-            temp.verificationSessionStorage();
+            CompteurObj.verificationSessionStorage();
             
-            
-            // Événements lors de la validation du Canvas
-            envoie.addEventListener("click", function() {
-                
                 // Aucune réservation n'existe
                 // Lance la méthode de lancement de la réservation
                 if(!sessionStorage.getItem("minutes")) {
-                //Marque du text
-                text.textContent = "Vélo réservé au nom de: " + localStorage.name + " " + localStorage.last_name + temp.reservation();            
-                }
-            });
+                    //Marque du text
+                    text.textContent = "Vélo réservé au nom de: " + localStorage.name + " " + localStorage.last_name; 
+                    CompteurObj.reservation();           
+                    }
 
-            // Evénement lors du clique sur le bouton d'annulation d'une réservation
-            fermeture.addEventListener("click", function() {
-                // Lance la méthode d'annulation
-                temp.annulerReservation();
-                temp.clearTimeout(() => this.compteARebourTerminer);
-            });
-
-
-            //Enlever velo avec json_obj ->  mentor aide ? 
+            compteurId.style.display = "block";
 
             //bouton fermeture
             fermeture.style.display = "block";
