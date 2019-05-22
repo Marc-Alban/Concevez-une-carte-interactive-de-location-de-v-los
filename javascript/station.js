@@ -14,7 +14,8 @@ var btnElt = document.getElementById('btnEnvoi');
 //Fonction sur le boutton envoie
 btnElt.addEventListener('click', affichageElements);
 
-
+//Sélection de l'id Temps 
+var tempsElt = document.getElementById("temps");
 //Sélection de l'id textTemps 
 var textDuCompteur = document.getElementById("textTemps");
 //Sélection de l'id countdown 
@@ -207,12 +208,13 @@ function donneesEnvoyer(e){
     }
 }
 
+//Fonction qui fait apparaitre lors des cliques des block.
 function affichageElements(){        
     form.style.display = "block";
     if(form.style.display = "block"){
         btnEnvoie.addEventListener('click', function(e){
             e.preventDefault();
-            textDuCompteur.style.display = "block";
+            tempsElt.style.display = "block";
         })
     }
 }
