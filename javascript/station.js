@@ -44,11 +44,12 @@ var Compteur = function() {
     this.verificationSessionStorage = function() {
         if (sessionStorage.getItem("minutes")) { // Si une réservation est en cours
             //Annulation de le compte à rebour
-            this.compteARebourTerminer = setTimeout(() => this.annulerReservation(), 1000);
-        }else{
-        // Sinon lancement de l'initiation du compteur 
-         this.compteARebour = setInterval(this.initCompteur.bind(this),1000);
+            this.compteARebourTerminer = this.annulerReservation();
         }
+    
+            // Sinon lancement de l'initiation du compteur 
+            this.compteARebour = setInterval(this.initCompteur.bind(this),1000);
+
     };
        
     //Storage et  Méthode Réservation
@@ -178,6 +179,7 @@ function donneesEnvoyer(e){
 
     }
 
+
     if(!nom.validity.valueMissing && !prenom.validity.valueMissing )
     {
     //Supprétion du déssin Canvas
@@ -202,8 +204,11 @@ function affichageElements(){
     form.style.display = "block";
     if(form.style.display = "block"){
         btnEnvoie.addEventListener('click', function(e){
-            e.preventDefault();
-            tempsElt.style.display = "block";
+            if(!nom.validity.valueMissing && !prenom.validity.valueMissing )
+            {
+                e.preventDefault();
+                tempsElt.style.display = "block";
+            }
         })
     }
 }
