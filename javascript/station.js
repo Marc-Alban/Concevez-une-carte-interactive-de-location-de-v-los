@@ -163,6 +163,7 @@ function donneesEnvoyer(e){
     }else{
         prenom_m.style.color = "green";
         prenom.style.color = "green";
+        localStorage.last_name = prenom.value;
     }
     
     if(nom.validity.valueMissing){
@@ -173,36 +174,28 @@ function donneesEnvoyer(e){
     }else{
         nom_m.style.color = "green";
         nom.style.color = "green";
+        localStorage.name = nom.value;
+
     }
 
     if(!nom.validity.valueMissing && !prenom.validity.valueMissing )
     {
-
-    //Stockage du nom et prénom dans la méthode localStorage 
-    //-> pour reprendre le nom et prénom une fois le navigateur fermé et réouvert
-    localStorage.name = nom.value;
-    localStorage.last_name = prenom.value;
-
     //Supprétion du déssin Canvas
     clearCanvas();
 
     // Vérification de l'existence d'une réservation et 
     // si il y en a une utiliser la méthode annulation
     CompteurObj.verificationSessionStorage();
-
-    // Lance la méthode de lancement de la réservation
-    if(!sessionStorage.getItem("minutes")) {
-
-        //Marque du text
-        textDuCompteur.textContent = "Vélo réservé au nom de: " + localStorage.name + " " + localStorage.last_name;   //Relance la méthode init 
-        //bouton fermeture
-        compteurId.style.display = "block";
-        //bouton fermeture
-        btnAnnulation.style.display = "block";
+    //Marque du text
+    textDuCompteur.textContent = "Vélo réservé au nom de: " + localStorage.name + " " + localStorage.last_name;   //Relance la méthode init 
+    //bouton fermeture
+    compteurId.style.display = "block";
+    //bouton fermeture
+    btnAnnulation.style.display = "block";
 
         }
     }
-}
+
 
 //Fonction qui fait apparaitre lors des cliques des block.
 function affichageElements(){        
