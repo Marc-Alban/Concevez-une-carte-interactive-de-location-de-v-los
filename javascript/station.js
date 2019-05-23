@@ -86,9 +86,6 @@ var Compteur = function() {
             this.compteARebourTerminer = setTimeout(() => this.annulerReservation(), 1000);
         }
 
-         //lancement de l'initiation du compteur 
-         this.compteARebour = setInterval(this.initCompteur.bind(this),1000);
-
     };
 
     //Methode de d'initialisation du compte à rebours
@@ -109,11 +106,12 @@ var Compteur = function() {
         }
 
         //Insertion du Compteur dans le html
-        textDuCompteur.innerHTML = this.minutes + " : " + this.secondes;
+        compteurId.innerHTML = this.minutes + " : " + this.secondes;
 
         //Fonction compte à rebours
         this.lancementCompteur();
 
+    
     };
 
     this.annulerReservation = function(){
@@ -196,9 +194,7 @@ function donneesEnvoyer(e){
     if(!sessionStorage.getItem("minutes")) {
 
         //Marque du text
-        textDuCompteur.textContent = "Vélo réservé au nom de: " + localStorage.name + " " + localStorage.last_name; 
-        //Relance la méthode init
-        CompteurObj.lancementCompteur();
+        textDuCompteur.textContent = "Vélo réservé au nom de: " + localStorage.name + " " + localStorage.last_name;   //Relance la méthode init 
         //bouton fermeture
         compteurId.style.display = "block";
         //bouton fermeture
