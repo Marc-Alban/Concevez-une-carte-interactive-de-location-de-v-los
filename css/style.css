@@ -7,6 +7,7 @@ left: 0;
 background-color: #dddddd;
 -webkit-box-shadow: 0 0 22px 4px rgba(0,0,0,0.5) inset;
 box-shadow: 0 0 22px 4px rgba(0,0,0,0.5) inset;
+overflow: hidden;
 }
 
 #block_pages2 {
@@ -253,3 +254,55 @@ footer {
     margin: auto;
 }
     
+
+/* Responsive */
+
+@media screen and (min-width: 200px) and (max-width: 640px) {
+
+    /* General */
+    #block_pages2 {
+        width: 100%;
+        position: initial;
+        touch-action: none;
+    }
+
+    /* en-tete */
+    header {
+        height: 95px;
+    }
+
+    #en-tete h1{
+            font-size: 1.2em;
+            display: block;       
+    }
+
+    /* Slide */
+    #container {
+        height: 459px;
+    }
+
+    .sliderConteneur .infos{
+        display: none;
+    }
+
+    #prev {
+        top: 37%;
+    }
+
+    #next {
+        top: 37%;
+        right: 3%;
+    }
+
+    #pause {
+        left: 20%;
+        bottom: 133px;
+    }
+
+    /* Station */
+    #infos_global{
+          flex-wrap: wrap;  
+    }
+
+
+}
