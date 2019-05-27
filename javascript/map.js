@@ -38,6 +38,7 @@ json_obj.forEach(station => {
     var status = station.status;
     var standPlace = station.bike_stands;
 
+   
 
     //Condition si status ouverts alors affichée marker vert sinon rouge
     if(status === "OPEN"){
@@ -60,9 +61,13 @@ json_obj.forEach(station => {
 
     marker.on('click', function(){
         document.getElementById('nom_station').textContent = "Station: " + nom;
+        localStorage.setItem("nom", nom);
         document.getElementById('adresse_station').textContent = "Adresse: " + adress;
-        document.getElementById('disponible_velo').textContent = "Nombre de vélo: " + nbVelo + " disponible";
-        document.getElementById('bike_stands').textContent = "Nombre de place de vélo: " + standPlace + " disponible";
+        localStorage.setItem("station", adress);
+        document.getElementById('disponible_velo').textContent = "Nombre de vélo: " + nbVelo + " disponible" + (nbVelo > 1  ? "s" : "");
+        localStorage.setItem("nbVelo", nbVelo)
+        
+        document.getElementById('bike_stands').textContent = "Nombre de place" + (standPlace > 1  ? "s" : "") + " disponible" + (standPlace > 1  ? "s: " : ": ") + standPlace;
         document.getElementById('status').textContent = "Status:" + status;
         if(status === "OPEN" && nbVelo != 0){
             document.getElementById('btnEnvoi').style.display = 'block';

@@ -154,7 +154,8 @@ function fermer(){
 
 //Fontion lors du clique sur le boutton envoie
 function donneesEnvoyer(e){
-
+    prenom.value= prenom.value.trim();
+    nom.value = nom.value.trim();
     //Validation des champs avec JS
     if(prenom.validity.valueMissing){
         e.preventDefault();
@@ -176,7 +177,6 @@ function donneesEnvoyer(e){
         nom_m.style.color = "green";
         nom.style.color = "green";
         localStorage.name = nom.value;
-
     }
 
 
@@ -189,7 +189,7 @@ function donneesEnvoyer(e){
     // si il y en a une utiliser la méthode annulation
     CompteurObj.verificationSessionStorage();
     //Marque du text
-    textDuCompteur.textContent = "Vélo réservé au nom de: " + localStorage.name + " " + localStorage.last_name;   //Relance la méthode init 
+    textDuCompteur.textContent = "Vélo réservé à la station " + localStorage.nom + localStorage.station + " au nom de: " + localStorage.name + " " + localStorage.last_name;   //Relance la méthode init 
     //bouton fermeture
     compteurId.style.display = "block";
     //bouton fermeture

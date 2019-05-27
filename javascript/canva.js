@@ -21,25 +21,30 @@ function clearCanvas() {
     ctx.beginPath();
 }
 
-//Lorsque le clic est en haut: ne rien faire
-canvas.addEventListener("mouseup", function(){
-    trait = false;
-})
 
-//Lorsque la sourie est sortie: ne rien faire
-canvas.addEventListener("mouseout", function(){
-    trait = false;
-})
 
-//Lorsque le clic est en bas:  crée un trait
-canvas.addEventListener("mousedown", function(){
-    trait = true;
-    ctx.beginPath();
+['mouseout', 'mouseup','touchend','touchleave'].forEach( evt => //Lorsque le clic quitte:  crée un trait
+    canvas.addEventListener(evt, function(){
+        trait = false;
+    }) );
 
-})
 
-//Lorsque la sourie est en mouvement: 
-canvas.addEventListener("mousemove", function(e){
+
+//Avoiding scroll when using a touchpad $(this.canvas).on("scroll touchmove mousewheel ", function(e){ e.preventDefault(); e.stopPropagation(); return false; })
+['mousedown','touchstart'].forEach( evt => //Lorsque le clic est en bas:  crée un trait
+    canvas.addEventListener(evt, function(){
+        trait = true;
+        ctx.beginPath();
+    }) );
+
+
+
+
+['mousemove','touchmove'].forEach( evt => //Lorsque le clic est en bas:  crée un trait
+        canvas.addEventListener(evt, function(e){
+        
         //décalage sur l'axe Y et X du pointeur de la souris --> provient de l'interface MouseEvent 
-    draw(e.offsetX, e.offsetY);
-})
+        draw(e.offsetX, e.offsetY);
+        e.preventDefault();
+        }) );
+    
