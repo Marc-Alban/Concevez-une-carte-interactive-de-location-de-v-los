@@ -41,10 +41,25 @@ function clearCanvas() {
 
 
 ['mousemove','touchmove'].forEach( evt => //Lorsque le clic est en bas:  crée un trait
+       
         canvas.addEventListener(evt, function(e){
+
+        // console.log(e);
+        // console.log(canvas.getBoundingClientRect())
         
-        //décalage sur l'axe Y et X du pointeur de la souris --> provient de l'interface MouseEvent 
-        draw(e.offsetX, e.offsetY);
+        if(e.type == "mousemove"){
+            //décalage sur l'axe Y et X du pointeur de la souris --> provient de l'interface MouseEvent 
+            draw(e.offsetX, e.offsetY);
+        }else if (e.type == "touchmove"){
+            let rect = canvas.getBoundingClientRect();
+            //décalage sur l'axe Y et X du pointeur de la souris --> provient de l'interface MouseEvent 
+            let leftTouch = e.touches[0].clientX - rect.left ;
+            let topTouch = e.touches[0].clientY - rect.top;
+            draw(leftTouch, topTouch );
+        }
+
+        // e.getBoundingClientRect();
         e.preventDefault();
+      
         }) );
     
