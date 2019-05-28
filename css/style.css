@@ -257,6 +257,32 @@ footer {
 
 /* Responsive */
 
+@media screen and (min-width: 640px) and (max-width: 920px) {
+
+    /* General */
+    #block_pages2 {
+        width: 100%;
+        position: initial;
+        touch-action: none;
+    }
+
+
+    /* Slide */
+
+    #pause {
+        left: 20%;
+        bottom: 133px;
+    }
+
+    /* Station */
+    #infos_global{
+          flex-wrap: wrap;  
+    }
+
+
+}
+
+
 @media screen and (min-width: 200px) and (max-width: 640px) {
 
     /* General */
