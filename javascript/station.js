@@ -84,7 +84,7 @@ var Compteur = function() {
             alert("Votre location à pris fin");
 
             //Appel d'une méthode annulation réservation
-            this.compteARebourTerminer = setTimeout(() => this.annulerReservation(), 1000);
+            this.compteARebourTerminer = setTimeout(this.annulerReservation(), 1000);
         }
 
     };
