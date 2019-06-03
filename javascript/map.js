@@ -54,6 +54,11 @@ json_obj.forEach(station => {
         });
     }
 
+    // document.getElementById('Annuler').on('click', function(){
+    //     return nbVelo++;
+    // });
+
+
 
     //Affiche les markers sur la carte
     var marker = L.marker([cooLat, cooLon], {icon: myIcon}).addTo(mymap);
