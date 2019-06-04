@@ -87,7 +87,7 @@ var Compteur = function() {
             alert("Votre location à pris fin");
 
             //Appel d'une méthode annulation réservation
-            this.compteARebourTerminer = setTimeout(this.annulerReservation(), 1000);
+            this.compteARebourTerminer = this.annulerReservation;
         }
 
     };
@@ -134,7 +134,7 @@ var Compteur = function() {
         //Arret de la méthode seTimeout
         clearTimeout(this.compteARebourTerminer);
 
-
+        stationReservee = null;
 
     };
 
@@ -156,6 +156,8 @@ function fermer(){
     compteurId.style.display = "none";
     // Lance la méthode d'annulation de l'objet Compteur
     CompteurObj.annulerReservation();
+
+
 }
 
 //Fontion lors du clique sur le boutton envoie
@@ -201,9 +203,7 @@ function donneesEnvoyer(e){
     //bouton fermeture
     btnAnnulation.style.display = "block";
 
-    if(localStorage.station == stationReservee){
-       console.log( nbVelo --)
-    }
+    stationReservee = localStorage.nom;
 
         }
     }
@@ -216,6 +216,7 @@ function affichageElements(){
         btnEnvoie.addEventListener('click', function(e){
             if(!nom.validity.valueMissing && !prenom.validity.valueMissing )
             {
+
                 e.preventDefault();
                 tempsElt.style.display = "block";
             }
