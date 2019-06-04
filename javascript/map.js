@@ -25,10 +25,12 @@ function Get(yourUrl){
     return Httpreq.responseText;   //Retour information en format text
  }
 
+ 
  //Génération d'un objet JSON
 var json_obj = JSON.parse(Get(lien));
 //Boucle pour afficher les markers sur la map 
 json_obj.forEach(station => {
+
 
     var nom = station.name;
     var adress = station.address;
@@ -38,7 +40,6 @@ json_obj.forEach(station => {
     var status = station.status;
     var standPlace = station.bike_stands;
 
-   
 
     //Condition si status ouverts alors affichée marker vert sinon rouge
     if(status === "OPEN"){
@@ -54,9 +55,6 @@ json_obj.forEach(station => {
         });
     }
 
-    // document.getElementById('Annuler').on('click', function(){
-    //     return nbVelo++;
-    // });
 
 
 
@@ -70,10 +68,9 @@ json_obj.forEach(station => {
         document.getElementById('adresse_station').textContent = "Adresse: " + adress;
         localStorage.setItem("station", adress);
         document.getElementById('disponible_velo').textContent = "Nombre de vélo: " + nbVelo + " disponible" + (nbVelo > 1  ? "s" : "");
-        localStorage.setItem("nbVelo", nbVelo)
-        
         document.getElementById('bike_stands').textContent = "Nombre de place" + (standPlace > 1  ? "s" : "") + " disponible" + (standPlace > 1  ? "s: " : ": ") + standPlace;
         document.getElementById('status').textContent = "Status:" + status;
+        console.log(stationReservee);
         if(status === "OPEN" && nbVelo != 0){
             document.getElementById('btnEnvoi').style.display = 'block';
         }else if(status === "CLOSE"){

@@ -22,14 +22,14 @@ var textDuCompteur = document.getElementById("textTemps");
 var compteurId =  document.getElementById("countdown");
 //Sélection  du boutton annuler
 var btnAnnulation = document.getElementById("Annuler");
-//Définition d'une fonction lors du click sur le boutton
-var nbBikes = document.getElementById('disponible_velo');
 //evenement lors du click sur annuler
-btnAnnulation.addEventListener('click', fermer());
+btnAnnulation.addEventListener('click', fermer);
 //Sélection  du boutton envoyer
 var btnEnvoie = document.getElementById('envoie');
 //Définition d'une fonction lors du click sur le boutton
 btnEnvoie.addEventListener('click', donneesEnvoyer)
+
+var stationReservee = null;
 
 
 //------------------Objet Compteur -----------------------//
@@ -138,13 +138,6 @@ var Compteur = function() {
 
     };
 
-    this.decrementBike = function(){
-        return nbBikes-- ;
-    };
-
-    this.incrementBike = function(){
-        return nbBikes++ ;
-    };
 }
 
 
@@ -163,8 +156,6 @@ function fermer(){
     compteurId.style.display = "none";
     // Lance la méthode d'annulation de l'objet Compteur
     CompteurObj.annulerReservation();
-
-    nbBikes = CompteurObj.incrementBike();
 }
 
 //Fontion lors du clique sur le boutton envoie
@@ -210,6 +201,10 @@ function donneesEnvoyer(e){
     //bouton fermeture
     btnAnnulation.style.display = "block";
 
+    if(localStorage.station == stationReservee){
+       console.log( nbVelo --)
+    }
+
         }
     }
 
@@ -223,7 +218,6 @@ function affichageElements(){
             {
                 e.preventDefault();
                 tempsElt.style.display = "block";
-                nbBikes = CompteurObj.decrementBike();
             }
         })
     }
