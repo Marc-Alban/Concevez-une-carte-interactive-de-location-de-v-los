@@ -40,9 +40,6 @@ json_obj.forEach(station => {
     var status = station.status;
     var standPlace = station.bike_stands;
 
-    //on stock le nombre de velo
-    localStorage.setItem('nbVelo', nbVelo);
-
     //Condition si status ouverts alors affichée marker vert sinon rouge
     if(status === "OPEN"){
          myIcon = L.icon({
@@ -69,13 +66,17 @@ json_obj.forEach(station => {
         localStorage.setItem("nom", nom);
         document.getElementById('adresse_station').textContent = "Adresse: " + adress;
         localStorage.setItem("station", adress);
+
+        document.getElementById('disponible_velo').textContent = "Nombre de vélo: " + nbVelo + " disponible" + (nbVelo > 1  ? "s" : "");
+        localStorage.setItem('nbVelo', nbVelo);
+        
         if(stationReservee == nom){
             document.getElementById('disponible_velo').textContent = "Nombre de vélo: " + (nbVelo-1) + " disponible" + (nbVelo > 1  ? "s" : ""); 
             localStorage.setItem('nbVeloMoins', nbVelo-1);
         }
-        else{
-            document.getElementById('disponible_velo').textContent = "Nombre de vélo: " + nbVelo + " disponible" + (nbVelo > 1  ? "s" : "");
-        }
+
+
+
         document.getElementById('bike_stands').textContent = "Nombre de place" + (standPlace > 1  ? "s" : "") + " disponible" + (standPlace > 1  ? "s: " : ": ") + standPlace;
         document.getElementById('status').textContent = "Status:" + status;
         
