@@ -55,7 +55,7 @@ json_obj.forEach(station => {
         });
     }
 
-
+    
 
 
     //Affiche les markers sur la carte
@@ -68,14 +68,18 @@ json_obj.forEach(station => {
         document.getElementById('adresse_station').textContent = "Adresse: " + adress;
         localStorage.setItem("station", adress);
         if(stationReservee == nom){
-            document.getElementById('disponible_velo').textContent = "Nombre de vélo: " + nbVelo-1 + " disponible" + (nbVelo > 1  ? "s" : "");
+            document.getElementById('disponible_velo').textContent = "Nombre de vélo: " + (nbVelo-1) + " disponible" + (nbVelo > 1  ? "s" : ""); 
+            localStorage.setItem('nbVeloMoins', nbVelo-1);
         }
-        else {
+        else{
             document.getElementById('disponible_velo').textContent = "Nombre de vélo: " + nbVelo + " disponible" + (nbVelo > 1  ? "s" : "");
+            localStorage.setItem('nbVelo', nbVelo);
         }
+
+        
         document.getElementById('bike_stands').textContent = "Nombre de place" + (standPlace > 1  ? "s" : "") + " disponible" + (standPlace > 1  ? "s: " : ": ") + standPlace;
         document.getElementById('status').textContent = "Status:" + status;
-        console.log(stationReservee);
+        
         if(status === "OPEN" && nbVelo != 0){
             document.getElementById('btnEnvoi').style.display = 'block';
         }else if(status === "CLOSE"){

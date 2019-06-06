@@ -87,7 +87,7 @@ var Compteur = function() {
             alert("Votre location à pris fin");
 
             //Appel d'une méthode annulation réservation
-            this.compteARebourTerminer = this.annulerReservation;
+            this.compteARebourTerminer = this.annulerReservation();
         }
 
     };
@@ -135,6 +135,9 @@ var Compteur = function() {
         clearTimeout(this.compteARebourTerminer);
 
         stationReservee = null;
+
+        document.getElementById('disponible_velo').textContent = "Nombre de vélo: " + (localStorage.nbVelo) + " disponible" + (localStorage.nbVelo > 1  ? "s" : ""); 
+
 
     };
 
@@ -202,9 +205,11 @@ function donneesEnvoyer(e){
     compteurId.style.display = "block";
     //bouton fermeture
     btnAnnulation.style.display = "block";
-
+    //on defini station au nom et donc n'est plus null
     stationReservee = localStorage.nom;
-
+     //on affiche le nombre de velo en storage   
+    document.getElementById('disponible_velo').textContent = "Nombre de vélo: " + (localStorage.nbVeloMoins) + " disponible" + (localStorage.nbVeloMoins > 1  ? "s" : "");
+    
         }
     }
 
