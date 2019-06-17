@@ -46,7 +46,7 @@ var Compteur = function() {
     //Vérification du storage
     this.verificationSessionStorage = function() {
         if (sessionStorage.getItem("minutes")) { // Si une réservation est en cours
-            //Annulation de le compte à rebour
+            //Annulation du compte à rebour
             this.compteARebourTerminer = this.annulerReservation();
         }
     
