@@ -1,136 +1,146 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
+
 <head>
-    <title>Projet3</title>
-    <meta charset="utf-8" />
-    <meta name='viewport' content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
-    integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
-    crossorigin=""/>
-    <link rel="stylesheet" href="css/style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+        integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+        crossorigin="" />
+    <link rel="stylesheet" href="style.css">
+    <title>Vélo Rouen</title>
 </head>
 
 <body>
-<div id="block_pages">
-    <div id="block_pages2">
-    <!-- header -->
+    <!-- HEADER -->
     <header>
-        <div id="en-tete">
-            <img src="img/cyclic.jpg" alt="Cy’clic" class="Cy’clic" />
-            <h1>Location de "Cy'clic" à Rouen</h1>
+        <div class="logo">
+            <a href="index.html">
+                <img src="assets/cyclic.jpg"  alt="rouen velo logo" id="logo">
+            </a>
         </div>
+        <nav id="menu">
+            <ul>
+                <li><a href="#Fonctionnement">Fonctionnement</a></li>
+                <li><a href="#reservation">Réservation</a></li>
+            </ul>
+        </nav>
     </header>
-    <!-- slider -->
-    <div id="introduction">
-        <h2>Bienvenue sur Cy'clic</h2>
-        <p>Vous pouvez louer votre vélo à Rouen partout facilement où que vous soyez et à n'importe quel moment en suivant les instructions ci-dessous. N'hésitez plus et louer en un maintenant.</p>
-    </div>
-        
-    <hr/>
-        
-    <section id="container">
-            <div class="sliderConteneur showing">
-                <img src="img/Zone.png" alt="infos indication marker" class="infos"/> 
-                <div class="texts"> 
-                    <h3>Etape 1</h3> 
-                    <p>Sélectionner une station, pour se faire cliquer sur le marqueur indiquant l'emplacement de votre choix.</p>
-                </div>   
-            </div>
-            <div class="sliderConteneur">
-                <img src="img/Reservation.png" alt="infos_station" class="infos"/> 
-                <div class="texts"> 
-                    <h3>Etape 2</h3> 
-                    <p>Des informations apparaissent, si cela vous convient cliquez sur "réserver".</p>
-                </div>
-            </div>
-            <div class="sliderConteneur">
-                <img src="img/Signature.PNG" alt="signature" class="infos"/>
-                 <div class="texts"> 
-                    <h3>Etape 3</h3> 
-                    <p>Remplir le formulaire puis signez et valider</p>
-                </div>
-            </div>
-            <div class="sliderConteneur">
-                <img src="img/Temps.PNG" alt="temps" class="infos"/> 
-                <div class="texts"> 
-                    <h3>Etape 4</h3>   
-                    <p>Un écart vous indique le temps restant avant annulation de la réservation. Si vous voulez vous désister, cliquer sur annuler puis renouveler l'étape précédente.</p>
-                </div>
-            </div>
-            <div class="sliderConteneur">
-                <img src="img/Profiter.jpg" alt="infos3" class="infos"/>
-                <div class="texts"> 
-                    <h3>Etape 5</h3> 
-                    <p>Profiter.</p>
-                </div> 
-            </div>  
-        <button class="controls" id="next"></button>
-        <button class="controls" id="prev"></button>
-        <button class="controls" id="pause">&#10074;&#10074;</button>
-     </section>
-    
-    <!-- Google map/Infos station/ Reservation staion--> 
 
-    <section id="section_map">
-        
-        <!-- Map -->
-            <div id="block_map">
-                <hr/>
-                <div id="map"></div>
+    <!-- SLIDER  -->
+    <section class="slider">
+        <div id="text-slider">
+            <h1><strong id="titre">Bienvenue à Rouen: <br/> <span class="color"> Service de location de vélo</span></strong></h1>
+        </div>
+    </section>
+    <!--  Fonctionnement  -->
+    <section id="Fonctionnement">
+        <div id="diaporama">
+            <div id="imgSlider">
+                <div id="textSlide">Bienvenue sur le site de réservation de velo de Rouen: <br> Ce diaporama vous montre la façon d\'utiliser la carte</div>
+                <figure class="imageFonctionnement">
+                    <img src="assets/01.jpeg" alt="une image" class="imgSlider">
+                    <div class="bouton bouton-gauche">
+                        <a id="prev"><i class="fas fa-angle-left fa-2x"></i></a>
+                    </div>
+                    <div class="bouton bouton-droit">
+                        <a id="next"><i class="fas fa-angle-right fa-2x"></i></a>
+                    </div>
+                </figure>
             </div>
-        
-        <!-- Détail de la station -->
-        <hr/>
-        <div id="infos_global">
-            <div id="infos_station">
-                <h3>Détail de la station</h3>
-                <p id="nom_station"></p>
-                <p id="adresse_station"></p>
-                <p id="disponible_velo"></p>
-                <p id="bike_stands"></p>
-                <p id="status"></p>
-                <button id="btnEnvoi">Réserver</button>
-            </div>
-
-            <div id="formulaire">
-                <form action="">
-                    <label for="nom">Nom</label>: <input type="text" id="nom" name="name" placeholder="Millet" required>
-                    <span id="nomManquant"></span>
-                    <br>
-                    <label for="prenom">Prénom</label>: <input type="text" id="prenom" name="last-name" placeholder="Marc-Alban" required>
-                    <span id="prenomManquant"></span>
-                    <br>
-                    <canvas id="canvas" touch-action="none"></canvas> 
-                    <input type="submit" id="envoie" value="envoyer">
-                </form>
-
-            </div>
-  
-            <!-- temps -->
-            <div id="temps">
-                <p> <span id="textTemps"></span> <span id="countdown"></span></p>
-              
-                <div id="Annuler"><button>Annuler</button></div>
+            <div class="playStopButton">
+                <button class="play btnPlayStop"><i class="fa fa-play fa-2x"></i></button>
+                <button class="stop btnPlayStop"><i class="fas fa-pause fa-2x"></i></button>
             </div>
         </div>
     </section>
-    
-    <!-- Footer -->
-    <footer>
-        <p class="Copyright">© 2019 Millet Marc-Alban - Projet3 OpenClassRoom.</p>
-    </footer>
-    
+    <!-- informations de la station et remplisage du formulaire -->
+    <div id="reservation"></div>
+    <div id="mapAndData">
+        <!-- carte -->
 
-    <!-- JavaScript -->
-    <!-- Make sure you put this AFTER Leaflet's CSS -->
-    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
-    integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
-    crossorigin=""></script>
-    <script src="javascript/diaporama.js"></script>
-    <script src="javascript/canva.js"></script>
-    <script src="javascript/map.js"></script>
-    <script src="javascript/station.js"></script>
+        <div id="map">
+            <div id="mapid"></div>
+        </div>
+        <div id="data">
+            <div id="dataStations">
+                <h3>Détails de la station</h3>
+                <h4></h4>
+                <p id="nameStation"></p>
+                <p id="address"></p>
+                <p id="nbVeloStation"></p>
+                <p id="nbVelo"></p>
+                <p id="statutStation"></p>
+                <button class="btnVelo btnReserver" id="btn-Reserver">Réserver</button>
+                <div id="identity"></div>
+            </div>
+
+            <!-- formulaire -->
+            <form class="form formReservation" action="" method="GET" name="formulaire" onsubmit="return valider ()">
+                <h3>Veuillez vous identifier pour reserver votre vélo</h3>
+                <div id="input">
+                    <p><label for="lastName">Nom : </label><input type="text" name="lastName" id="lastName" required>
+                    </p>
+                    <p><label for="firstName">Prénom : </label><input type="text" name="firstName" id="firstName"
+                            required></p>
+                </div>
+                <input type="submit" value="Réservation" class="btnVelo btnReservation">
+            </form>
+            <div id="lastName_m"></div>
+            <div id="firstName_m"></div>
+
+            <form class="form formCanvas">
+                <h3>Veuillez signer pour valider votre réservation</h3>
+                <canvas id="my-canvas" width="300" height="150">
+                    Votre navigateur ne supporte pas cet élément
+                </canvas>
+                <div id="divbutton">
+                    <button class="btnVelo btnReset">Reset</button>
+                    <input type="submit" value="Valider" class="btnVelo btnValider">
+                </div>
+            </form>
+            <div id="messageError"></div>
+        </div>
     </div>
-</div>
+
+    <!-- informations de la réservations -->
+    <div id="information">
+        <h2>Informations</h2>
+            <div id="recapReservation">
+                <div id="dataClient">
+                    <h3>utilisateur</h3>
+                    <p>Nom, Prenom</p>
+                    <p><span id="dataClientLastName"></span> <span id="dataClientFirstName"></span></p>
+                </div>
+                <div id="dataReservation">
+                    <h3>La station</h3>
+                    <p>Nom : <span id="nameStationDataReservation"></span></p>
+                    <p>Adresse : <span id="addressSattionDataReservation"></span></p>
+                    <p>Nombre de vélo loué : <span>1</span> Vélo</p>
+                </div>
+                <div id="signature">
+                    <img src="" alt="dataCanvas" id="dataCanvasDom">
+                </div>
+            </div>
+            <div id="infosDecompte">
+                <p> <span id="textElt">Temps restant avant expiration de la réservation</span>
+                    <span id="stopReservation">Votre reservation est annulée</span><span id="time">
+                    </span><span id="timeElt">Votre réservation est terminé merci à bientôt</p>
+            </div>
+            <button id="btnAnnuler" class="btnVelo">Annuler</button>
+
+    </div>
+    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+        integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+        crossorigin=""></script>
+    <script src="js/Diaporama.js"></script>
+    <script src="js/Map.js"></script>
+    <script src="js/Infos.js"></script>
+    <script src="js/Canvas.js"></script>
+    <script src="js/Timer.js"></script>
+    <script src="js/RestoreData.js"></script>
 </body>
 </html>

@@ -1,0 +1,478 @@
+/*---GENERAL----*/
+body {
+    color: black;
+    background: #ddd; 
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+em {
+    font-style: normal;
+}
+
+/*-----HEADER------*/
+header {
+    width: 80%;
+    margin: auto;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background: #000;
+    z-index: 10;
+    border-bottom: 1px dotted;
+}
+
+#logo {
+    width: 90px;
+    height: 70px;
+}
+
+header li a {
+    text-decoration: none;
+    color: #fff;
+    margin: 24px 30px;
+    padding: 10px 10px;
+    font-weight: 600;
+}
+
+#menu ul {
+    list-style-type: none;
+    display: flex;
+}
+
+#menu ul li a:hover {
+    color: #bd1515;
+}
+
+/*---SLIDER-------*/
+
+#textSlide{
+    text-align:center;
+    padding: 20px;
+}
+
+.slider{
+    margin: auto;
+    width: 80%;
+    background: #fffff5;
+    border-bottom: 1px dotted;
+}
+
+
+#text-slider {
+    position: relative;
+    font-style: normal;
+    margin-bottom: 100px;
+    text-align: center;
+    padding: 50px;
+    margin: 0;
+}
+
+#text-slider h1 {
+    font-size: 2em;
+    margin: 0;
+}
+
+#text-slider p {
+    margin-bottom: 40px;
+}
+
+
+
+#titre > .color{
+    color: #bd1515;
+}
+
+#text-slider a {
+    border-radius: 20px;
+    text-decoration: none;
+    padding: 5px 30px;
+    background-color: #194965;
+    color: white;
+}
+
+#text-slider a:hover {
+    background-color: rgba(255, 140, 0, 0.63);
+}
+
+#bouton-info {
+    color: white;
+    background-color: #5badd3;
+    text-decoration: none;
+    border-bottom: 3px solid #4494bb;
+    border-radius: 3px;
+    padding: 10px 15px;
+}
+
+/*-----Fonctionnement--------*/
+
+#Fonctionnement{
+    width: 80%;
+    margin: auto;
+    background:#fffff5;
+    border-bottom: 1px dotted;
+    padding: 50px 0;
+}
+
+.imageFonctionnement {
+    max-width: 990px;
+    width: 100%;
+    height: auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    opacity: 1;
+
+}
+
+.bouton-droit {
+    align-self: flex-end;
+    right: -30px;
+}
+
+.fa-angle-right:before {
+    margin-left: 12px;
+    font-size: 25px;
+}
+
+.bouton-gauche {
+    align-self: flex-start;
+    align-content: flex-start;
+    left: -30px;
+}
+
+.fa-angle-left:before {
+    margin-left: 35px;
+    font-size: 25px;
+}
+
+.bouton {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.4);
+    color: white;
+    height: 60px;
+    width: 60px;
+    border-radius: 10%;
+    text-decoration: none;
+    cursor: pointer;
+    top: 50%;
+    opacity: 0.7;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.bouton:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.btnPlayStop {
+    width: 100px;
+    background-color: #fffff5;
+    color: #020202;
+    font-size: 1rem;
+    border: none;
+    padding: 10px;
+}
+
+
+
+.btnPlayStop:hover {
+    background-color: rgb(189, 21, 21);
+}
+
+.playStopButton {
+    text-align: center;
+}
+
+#trait-slider {
+    position: absolute;
+    width: 10%;
+    top: 99.3%;
+    border: 2px solid #5badd3;
+}
+
+/*-------MAP--------*/
+
+#test {
+    text-align: center;
+    margin: 15%;
+
+}
+
+#mapAndData {
+    display: flex;
+    padding: 100px 0;
+    justify-content: center;
+    background: #fffff5;
+    width: 80%;
+    margin: auto;
+}
+
+#mapid {
+
+    width: 800px;
+    height: 500px;
+    box-shadow: 1px 1px 6px 2px #0c0c0c;
+    z-index: 1;
+}
+
+#dataStations {
+    width: 239px;
+    height: 375px;
+    margin-top: 50px;
+    margin-left: 20px;
+    color: black;
+}
+
+#dataStations h3,
+.btnReserve {
+    text-align: center;
+    align-items: center;
+}
+
+
+#btn-Reserver {
+    display: none;
+}
+
+#nameStation {
+    width: 270px;
+    height: 18px;
+    color: rgb(255, 0, 0);
+}
+
+#dataStations p {
+    padding: 10px 0px;
+    width: 270px;
+    height: 18px;
+}
+
+#address,
+span {
+    color: rgb(255, 0, 0);
+}
+
+.nameStationClass, 
+.addressStationClass,
+.stationClass{
+    color: #000;
+    text-align: left;
+    align-items: center;
+}
+
+
+.btnVelo {
+    text-decoration: none;
+    padding: 5px 30px;
+    background-color: #0a0b0c;
+    color: white;
+    font-size: 0.8rem;
+    display: block;
+    margin: 0 auto;
+}
+
+/*-------RESERVATION----------*/
+.form {
+    margin-top: 50px;
+    margin-left: 20px;
+    color: black;
+    padding: 20px 30px;
+    z-index: 2;
+}
+
+.formReservation {
+
+    width: 270px;
+    height: 375px;
+    display: none;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.formReservation h3,
+.formCanvas h3 {
+    text-align: center;
+}
+
+#validInput {
+    color: red;
+    display: none;
+}
+
+.formCanvas {
+
+    width: 320px;
+    height: 375px;
+    display: none;
+}
+
+#divbutton {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#my-canvas,
+#canvas {
+    margin-bottom: 10px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+
+#firstemail {
+    width: 150px;
+    margin-top: 5px;
+}
+
+/*--- informations------*/
+#information {
+    width: 80%;
+    background-color: #fffff5;
+    color: black;
+    text-align: center;
+    margin: 0 auto;
+    display: none;
+}
+
+#information h2 {
+    font-size: 2rem;
+    margin: 0;
+}
+#recapReservation {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#dataClient {
+    margin: 24px 0px;
+}
+
+#signature {
+    margin: 5px;
+}
+
+#dataCanvasDom {
+    width: 320px;
+    height: 160px;
+    margin-top: 2px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+#FonctionnementDecompte {
+    font-size: 1.2rem;
+    margin: 30px 0px;
+}
+#stopReservation {
+    display: none;
+}
+
+
+/*----TIMER----------*/
+
+#timeElt {
+    display: none;
+}
+
+
+/*-------MEDIA QUERIES-----------*/
+@media screen and (max-width: 1440px) {
+    body {
+        width: auto;
+    }
+
+    header {
+        flex-direction: column;
+        height: 150px;
+    }
+
+    #menu ul {
+        padding: 0;
+    }
+
+    #menu ul li a:hover {
+        color: #bd1515;
+        border: inherit;
+    }
+
+    .imgSlider {
+        width: 100%;
+    }
+
+    #mapAndData {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #mapid {
+        width: 95%;
+        height: 350px;
+        margin: auto;
+    }
+
+    #data {
+        display: flex;
+        justify-content: center;
+    }
+
+}
+
+@media screen  and (max-width: 550px) {
+    header li a {
+        text-decoration: none;
+        color: #fff;
+        margin: 0 auto;
+        padding: 10px 10px;
+    }
+
+    #menu ul li a:hover {
+        color: #bd1515;
+        border: inherit;
+    }
+
+
+    #dataStations,
+    .form {
+        margin-left: 0px;
+    }
+
+    .formCanvas {
+        width: 290px;
+    }
+
+    #information {
+        width: 80%;
+        margin: auto;
+    }
+
+    #dataCanvasDom {
+        height: auto;
+        width: 100%;
+    }
+
+    #recapReservation {
+        display: flex;
+        flex-direction: column;
+
+    }
+
+    #my-canvas, #canvas {
+        width: 230px;
+    }
+
+    .imageFonctionnement{
+        display: none;
+    }
+
+
+}
