@@ -43,6 +43,7 @@ class Map {
 			this.stationTab = await this.response.json()
 
 			this.stationTab.forEach(station => {
+				console.log(station)
 				this.nameStation = station.name
 				this.positionStation = station.position
 				this.adresseStation = station.address
@@ -60,7 +61,7 @@ class Map {
 						document.getElementById('address').innerHTML = "<span class='addressStationClass'>Adresse:</span> <br> " + station.address
 						document.getElementById('nbVeloStation').innerHTML = "Nombre de place" + (station.bike_stands > 1  ? "s :" : " :") + "<span class='red'>" + station.bike_stands + "</span>"
 						document.getElementById('nbVelo').innerHTML = "Nombre de vélo disponible" + (station.available_bikes > 1  ? "s :" : " :") + "<span class='red'>" + station.available_bikes + "</span>"
-						this.statutStation.innerHTML = "<span class='stationClass'>Station:</span>" + (station.status === 'OPEN'  ? "<span class='red'>Ouvert</span>" : "<span class='red'>Fermée</span>")
+						this.statutStation.innerHTML = "<span class='stationClass'>Station:</span><span class='red'>Ouvert</span>"
 
 
 						if (this.formReservation.style.display = 'block', this.formCanvas.style.display = 'block', this.information.style.display = 'block', this.btnReserver.style.display = 'none') {
@@ -71,6 +72,7 @@ class Map {
 							this.information.style.display = 'none'
 						}
 					})
+
 				} else {
 					this.marker = new L.marker(this.positionStation, {
 						icon: this.redIcon
@@ -80,8 +82,8 @@ class Map {
 						document.getElementById('nameStation').innerHTML = station.name
 						document.getElementById('address').innerHTML = station.address
 						document.getElementById('nbVeloStation').innerHTML = station.bike_stands
-						document.getElementById('nbVeloDisponible').innerHTML = station.available_bikes
-						statutStation.innerHTML = 'Fermé'
+						// document.getElementById('nbVeloDisponible').innerHTML = station.available_bikes
+						this.statutStation.innerHTML = "<span class='stationClass'>Station:</span><span class='red'>Fermé</span>"
 
 						if (this.formReservation.style.display = 'block', this.formCanvas.style.display = 'block', this.information.style.display = 'block', this.btnReserver.style.display = 'none') {
 							this.btnReserver.style.display = 'none'

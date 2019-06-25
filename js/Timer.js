@@ -35,10 +35,9 @@ class Timer
 
             this.tempsTimer--
 
-            if (this.tempsTimer < 0) {
+            if (this.tempsTimer === 0) {
                 this.textElt.style.display = 'none'
                 this.endReservation.style.display = 'block'
-                this.tempsTimer = 0
                 clearInterval(count)
                 sessionStorage.clear()
             }
@@ -50,6 +49,7 @@ class Timer
             this.time.style.display = 'none'
             this.textAnnulationElt.style.display = 'block'
             clearInterval(count)
+            sessionStorage.clear()
         })
         
         this.btnValider.addEventListener('click', (e) => {

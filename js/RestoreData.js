@@ -10,15 +10,18 @@ class RestoreData
         this.dataCanvasDom = document.querySelector('#dataCanvasDom')
         this.time = document.querySelector('#time')
         this.dataStations = document.querySelector('#dataStations')
+        this.btnStop = document.querySelector('#btnAnnuler')
+        this.data = document.querySelector('#data')
         this.check(window.sessionStorage)
     }
 
     check(sessionStorage)
-    {
+    {  
 
-        if(sessionStorage.length > 0)
+        
+        if(sessionStorage.length > 4 )
         {
-            console.log(sessionStorage)
+
             this.infos.style.display = "block"
             this.lastName.innerHTML = localStorage.getItem('nom')
             this.firstName.innerHTML = localStorage.getItem('prenom')
@@ -30,14 +33,23 @@ class RestoreData
             let sec = parseInt(sessionStorage.secondes)
             let endReservation = min + sec
             this.time.innerHTML = new Timer(endReservation, time)
-            
+           
+            this.btnStop.addEventListener('click', (e) => {
+                this.infos.style.display = 'none'
+                sessionStorage.clear()
+            })
         }
         else
         {
             console.log('sessionStorage est vide')
             this.infos.style.display = "none"
         }
+
+
+
+
     }
+
 }
 
 $restor = new RestoreData()
