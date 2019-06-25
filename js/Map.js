@@ -48,8 +48,7 @@ class Map {
 				this.positionStation = station.position
 				this.adresseStation = station.address
 
-				sessionStorage.setItem('Adresse de la Station', this.adresseStation)
-				sessionStorage.setItem('Nom de la Station', this.nameStation)
+
 
 				if (station.available_bikes > 0) {
 					this.marker = new L.marker(this.positionStation, {
@@ -57,11 +56,14 @@ class Map {
 					}).addTo(this.map)
 
 					this.marker.addEventListener('click', () => {
+						sessionStorage.setItem('Adresse de la Station', this.adresseStation)
+						sessionStorage.setItem('Nom de la Station', this.nameStation)
 						document.getElementById('nameStation').innerHTML = "<span class='nameStationClass'>Nom de la station:</span> <br> " + station.name 
 						document.getElementById('address').innerHTML = "<span class='addressStationClass'>Adresse:</span> <br> " + station.address
 						document.getElementById('nbVeloStation').innerHTML = "Nombre de place" + (station.bike_stands > 1  ? "s :" : " :") + "<span class='red'>" + station.bike_stands + "</span>"
 						document.getElementById('nbVelo').innerHTML = "Nombre de vélo disponible" + (station.available_bikes > 1  ? "s :" : " :") + "<span class='red'>" + station.available_bikes + "</span>"
 						this.statutStation.innerHTML = "<span class='stationClass'>Station:</span><span class='red'>Ouvert</span>"
+
 
 
 						if (this.formReservation.style.display = 'block', this.formCanvas.style.display = 'block', this.information.style.display = 'block', this.btnReserver.style.display = 'none') {
@@ -82,7 +84,7 @@ class Map {
 						document.getElementById('nameStation').innerHTML = station.name
 						document.getElementById('address').innerHTML = station.address
 						document.getElementById('nbVeloStation').innerHTML = station.bike_stands
-						// document.getElementById('nbVeloDisponible').innerHTML = station.available_bikes
+						document.getElementById('nbVeloDisponible').innerHTML = station.available_bikes
 						this.statutStation.innerHTML = "<span class='stationClass'>Station:</span><span class='red'>Fermé</span>"
 
 						if (this.formReservation.style.display = 'block', this.formCanvas.style.display = 'block', this.information.style.display = 'block', this.btnReserver.style.display = 'none') {
