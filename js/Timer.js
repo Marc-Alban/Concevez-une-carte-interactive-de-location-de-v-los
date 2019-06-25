@@ -6,7 +6,7 @@ class Timer
         this.display = display
         this.tempsTimer = tempsTimer
         this.btnValider = document.querySelector('.btnValider')
-        this.timeElt = document.querySelector('#timeElt')
+        this.endReservation = document.querySelector('#endReservation')
         this.textElt = document.querySelector('#textElt')
         this.information = document.querySelector('#information')
         this.btnStop = document.querySelector('#btnAnnuler')
@@ -37,7 +37,7 @@ class Timer
 
             if (this.tempsTimer < 0) {
                 this.textElt.style.display = 'none'
-                this.timeElt.style.display = 'block'
+                this.endReservation.style.display = 'block'
                 this.tempsTimer = 0
                 clearInterval(count)
                 sessionStorage.clear()
@@ -46,7 +46,7 @@ class Timer
 
         this.btnStop.addEventListener('click', () => {
             this.textElt.style.display = 'none'
-            this.timeElt.style.display = 'none'
+            this.endReservation.style.display = 'none'
             this.time.style.display = 'none'
             this.textAnnulationElt.style.display = 'block'
             clearInterval(count)
@@ -57,7 +57,7 @@ class Timer
                 if (this.tempsTimer > 0) {
                     this.textElt.style.display = 'block'
                     this.time.style.display = 'block'
-                    this.timeElt.style.display = 'none'
+                    this.endReservation.style.display = 'none'
                     this.textAnnulationElt.style.display = 'none'
                 }
             }
