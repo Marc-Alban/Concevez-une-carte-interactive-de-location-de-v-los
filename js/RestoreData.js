@@ -28,8 +28,8 @@ class RestoreData
             this.dataStations.style.display = 'none'
             let min = parseInt(sessionStorage.minutes * 60 )
             let sec = parseInt(sessionStorage.secondes)
-            let timeElts = min + sec
-            this.time.innerHTML = new Timer(timeElts, time)
+            let endReservation = min + sec
+            this.time.innerHTML = new Timer(endReservation, time)
             
         }
         else

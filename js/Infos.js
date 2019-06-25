@@ -50,34 +50,36 @@ class Infos {
           this.prenom.style.color = "red"
 
       }else{
+          this.prenom_m.innerHTML = ""
           this.prenom_m.style.color = "green"
           this.prenom.style.color = "green"
           localStorage.setItem('prenom', this.prenom.value)
+      }
 
-          if(this.nom.validity.valueMissing){
-            e.preventDefault()
-           this.nom_m.innerHTML = "Nom manquant"
-           this.nom_m.style.color = "red"
-           this.nom.style.color = "red"
 
-        }else{
-            this.nom_m.style.color = "green"
-            this.nom.style.color = "green"
-            localStorage.setItem('nom', this.nom.value)
-            localStorage.name = this.nom.value
+      if(this.nom.validity.valueMissing){
+        e.preventDefault()
+       this.nom_m.innerHTML = "Nom manquant"
+       this.nom_m.style.color = "red"
+       this.nom.style.color = "red"
 
-            if (this.nom.checkValidity() == true, this.prenom.checkValidity() == true) {
-              this.formCanvas.style.display = 'block'
-              this.formReservation.style.display = 'none'
-              this.dataStations.style.display = 'none'
-              this.prenom_m.style.display = 'none'
-              this.nom_m.style.display = 'none'
-              e.preventDefault()
-            }
+    }else{
+      this.nom_m.innerHTML = ""
+        this.nom_m.style.color = "green"
+        this.nom.style.color = "green"
+        localStorage.setItem('nom', this.nom.value)
+        localStorage.name = this.nom.value
 
+        if (this.nom.checkValidity() == true, this.prenom.checkValidity() == true) {
+          this.formCanvas.style.display = 'block'
+          this.formReservation.style.display = 'none'
+          this.dataStations.style.display = 'none'
+          this.prenom_m.style.display = 'none'
+          this.nom_m.style.display = 'none'
+          e.preventDefault()
         }
 
-      }
+    }
       
     })
   }

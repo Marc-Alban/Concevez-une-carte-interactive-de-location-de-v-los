@@ -39,6 +39,8 @@ class Timer
                 this.textElt.style.display = 'none'
                 this.timeElt.style.display = 'block'
                 this.tempsTimer = 0
+                clearInterval(count)
+                sessionStorage.clear()
             }
         }, 1000)
 
@@ -53,7 +55,6 @@ class Timer
         this.btnValider.addEventListener('click', (e) => {
             if (this.countStorage <= 10) {
                 if (this.tempsTimer > 0) {
-                    clearInterval(count)
                     this.textElt.style.display = 'block'
                     this.time.style.display = 'block'
                     this.timeElt.style.display = 'none'
