@@ -1,9 +1,9 @@
 class Timer
  {
     // Constructor
-    constructor(tempsTimer, display)
+    constructor(tempsTimer, position)
      {
-        this.display = display
+        this.position = position
         this.tempsTimer = tempsTimer
         this.btnValider = document.querySelector('.btnValider')
         this.endReservation = document.querySelector('#endReservation')
@@ -19,7 +19,7 @@ class Timer
 
 
 
-    // fonctionnallitées
+    // fonctionnalitées
     startTimer()
      {
 
@@ -31,10 +31,7 @@ class Timer
             this.minutes = this.minutes < 10 ? "0" + this.minutes : this.minutes
             this.seconds = this.seconds < 10 ? "0" + this.seconds : this.seconds
 
-            sessionStorage.setItem('secondes', this.seconds)
-            sessionStorage.setItem('minutes', this.minutes)
-
-            this.display.textContent = ' ' + this.minutes + " : " + this.seconds;
+            this.position.textContent = ' ' + this.minutes + " : " + this.seconds;
 
             this.tempsTimer--
 
@@ -57,6 +54,8 @@ class Timer
         this.btnValider.addEventListener('click', (e) => {
             if (this.countStorage <= 10) {
                 if (this.tempsTimer > 0) {
+                    sessionStorage.setItem('secondes', this.seconds)
+                    sessionStorage.setItem('minutes', this.minutes)
                     this.textElt.style.display = 'block'
                     this.time.style.display = 'block'
                     this.endReservation.style.display = 'none'

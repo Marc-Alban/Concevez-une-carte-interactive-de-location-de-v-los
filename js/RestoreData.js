@@ -25,7 +25,7 @@ class RestoreData
             {
                 if(sessionStorage.length > 0  )
                 {
-                    console.log(sessionStorage)
+                console.log(sessionStorage)
                 this.infos.style.display = "block"
                 this.lastName.innerHTML = localStorage.getItem('nom')
                 this.firstName.innerHTML = localStorage.getItem('prenom')
