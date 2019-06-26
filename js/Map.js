@@ -64,7 +64,7 @@ class Map {
 						document.getElementById('nbVeloStation').innerHTML = "Nombre de place" + (station.bike_stands > 1  ? "s :" : " :") + "<span class='red'>" + station.bike_stands + "</span>"
 						document.getElementById('nbVelo').innerHTML = "Nombre de vélo disponible" + (station.available_bikes > 1  ? "s :" : " :") + "<span class='red'>" + station.available_bikes + "</span>"
 						this.statutStation.innerHTML = "<span class='stationClass'>Station:</span><span class='red'>Ouvert</span>"
-						//time.cancelTimer()
+						time.cancelTimer()
 
 
 						if (this.formReservation.style.display = 'block', this.formCanvas.style.display = 'block', this.information.style.display = 'block', this.btnReserver.style.display = 'none') {
