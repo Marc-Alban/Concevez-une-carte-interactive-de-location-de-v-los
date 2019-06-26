@@ -17,37 +17,38 @@ class RestoreData
 
     check(sessionStorage)
     {  
-
-        
-        if(sessionStorage.length > 4 )
-        {
-
-            this.infos.style.display = "block"
-            this.lastName.innerHTML = localStorage.getItem('nom')
-            this.firstName.innerHTML = localStorage.getItem('prenom')
-            this.addressSattionDataReservation.innerHTML = sessionStorage.getItem('Adresse de la Station') 
-            this.nameStationDataReservation.innerHTML = sessionStorage.getItem('Nom de la Station')
-            this.dataCanvasDom.src = sessionStorage.getItem('dataCanvas')
-            this.dataStations.style.display = 'none'
-            let min = parseInt(sessionStorage.minutes * 60 )
-            let sec = parseInt(sessionStorage.secondes)
-            let endReservation = min + sec
-            this.time.innerHTML = new Timer(endReservation, time)
-           
-            this.btnStop.addEventListener('click', (e) => {
-                this.infos.style.display = 'none'
-                sessionStorage.clear()
-            })
+            if(isNaN(sessionStorage.minutes) && isNaN(sessionStorage.secondes))
+            {
+                console.log('pas de minute et de seconde')
+            }
+            else
+            {
+                if(sessionStorage.length > 0  )
+                {
+                    console.log(sessionStorage)
+                this.infos.style.display = "block"
+                this.lastName.innerHTML = localStorage.getItem('nom')
+                this.firstName.innerHTML = localStorage.getItem('prenom')
+                this.addressSattionDataReservation.innerHTML = sessionStorage.getItem('Adresse de la Station') 
+                this.nameStationDataReservation.innerHTML = sessionStorage.getItem('Nom de la Station')
+                this.dataCanvasDom.src = sessionStorage.getItem('dataCanvas')
+                this.dataStations.style.display = 'none'
+                let min = parseInt(sessionStorage.minutes * 60 )
+                let sec = parseInt(sessionStorage.secondes)
+                let endReservation = min + sec
+                this.time.innerHTML = new Timer(endReservation, time)
+               
+                    this.btnStop.addEventListener('click', (e) => {
+                        this.infos.style.display = 'none'
+                        sessionStorage.clear()
+                    })
+                }
+                else
+                {
+                    console.log('sessionStorage est vide')
+                    this.infos.style.display = "none"
+                }
         }
-        else
-        {
-            console.log('sessionStorage est vide')
-            this.infos.style.display = "none"
-        }
-
-
-
-
     }
 
 }

@@ -23,7 +23,7 @@ class Timer
     startTimer()
      {
 
-        const count = setInterval(() => {
+        this.count = setInterval(() => {
 
             this.minutes = parseInt(this.tempsTimer / 60,10)
             this.seconds = parseInt(this.tempsTimer % 60,10)
@@ -41,8 +41,8 @@ class Timer
             if (this.tempsTimer === 0) {
                 this.textElt.style.display = 'none'
                 this.endReservation.style.display = 'block'
-                clearInterval(count)
-                sessionStorage.clear()
+                this.cancelTimer()
+                
             }
         }, 1000)
 
@@ -51,8 +51,7 @@ class Timer
             this.endReservation.style.display = 'none'
             this.time.style.display = 'none'
             this.textAnnulationElt.style.display = 'block'
-            clearInterval(count)
-            sessionStorage.clear()
+            this.cancelTimer()
         })
         
         this.btnValider.addEventListener('click', (e) => {
@@ -70,11 +69,12 @@ class Timer
     cancelTimer()
     {
         clearInterval(this.count)
+        sessionStorage.clear()
     }
 }
 
+let time
 document.querySelector('.btnValider').addEventListener('click', () => {
-    let time = new Timer(1200, document.querySelector('#time'))
-    
+    time = new Timer(1200, document.querySelector('#time'))
 })
 
