@@ -36,6 +36,8 @@ class Map {
 		}).addTo(this.map)
 	}
 
+
+
 	// recuperation des donnée de l'api
 	getStationData() {
 		const getStationDataJson = async () => {
@@ -43,7 +45,6 @@ class Map {
 			this.stationTab = await this.response.json()
 
 			this.stationTab.forEach(station => {
-				console.log(station)
 				this.nameStation = station.name
 				this.positionStation = station.position
 				this.adresseStation = station.address
@@ -56,14 +57,14 @@ class Map {
 					}).addTo(this.map)
 
 					this.marker.addEventListener('click', () => {
-						sessionStorage.setItem('Adresse de la Station', this.adresseStation)
-						sessionStorage.setItem('Nom de la Station', this.nameStation)
+						sessionStorage.setItem('Adresse de la Station', station.address)
+						sessionStorage.setItem('Nom de la Station', station.name)
 						document.getElementById('nameStation').innerHTML = "<span class='nameStationClass'>Nom de la station:</span> <br> " + station.name 
 						document.getElementById('address').innerHTML = "<span class='addressStationClass'>Adresse:</span> <br> " + station.address
 						document.getElementById('nbVeloStation').innerHTML = "Nombre de place" + (station.bike_stands > 1  ? "s :" : " :") + "<span class='red'>" + station.bike_stands + "</span>"
 						document.getElementById('nbVelo').innerHTML = "Nombre de vélo disponible" + (station.available_bikes > 1  ? "s :" : " :") + "<span class='red'>" + station.available_bikes + "</span>"
 						this.statutStation.innerHTML = "<span class='stationClass'>Station:</span><span class='red'>Ouvert</span>"
-
+						Timer.cancelTimer()
 
 
 						if (this.formReservation.style.display = 'block', this.formCanvas.style.display = 'block', this.information.style.display = 'block', this.btnReserver.style.display = 'none') {

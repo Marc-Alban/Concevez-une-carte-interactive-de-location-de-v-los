@@ -14,7 +14,10 @@ class Timer
         this.time = document.querySelector('#time')
         this.countStorage = sessionStorage.getItem('countStorage')
         this.startTimer()
+        
     }
+
+
 
     // fonctionnallitées
     startTimer()
@@ -62,6 +65,11 @@ class Timer
                 }
             }
         })
+    }
+
+    cancelTimer()
+    {
+        clearInterval(this.count)
     }
 }
 
